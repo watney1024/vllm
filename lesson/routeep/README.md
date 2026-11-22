@@ -36,13 +36,13 @@ lesson/routeep/
 
 | Stage | 课时 | 交付物 | 本机状态 | GPU 待跑 |
 |---|---|---|---|---|
-| 0 | L1 基线调研 | `notes/01-background.md`、本台账 | ✅ 进行中 | — |
-| 1 | L2-3 Router & 调度元数据 | `router.py`、`metadata.py`、`tests/test_router.py`、`tests/test_metadata.py` | ⬜ 待开始 | — |
-| 2 | L4-5 All-to-All | `comm/base.py`、`comm/nccl_a2a.py`、`comm/sim_a2a.py` | ⬜ 待开始 | 多 rank NCCL 固定/变长 A2A |
-| 3 | L6-8 Triton 算子 | `kernels/dispatch_combine.py`、`kernels/grouped_gemm.py`、`experts/mlp.py` | ⬜ 待开始 | kernel 编译、数值对齐、精度/边界 case |
-| 4 | L9-10 接入 vLLM | `notes/09-vllm-path.md`、`moe_runner.py` | ⬜ 待开始 | 单轮 prefill/decode 跑通 |
-| 5 | L11 Graph & 拓扑 | `graph/bucket_graph.py`、拓扑/专家放置配置 | ⬜ 待开始 | Graph warmup/capture/replay、EP=1/2/4 |
-| 6 | L12-13 对齐压测 | 对齐脚本、服务封装、压测脚本、复盘模板 | ⬜ 待开始 | 逐层 hidden state 对齐、17038 请求稳定性压测 |
+| 0 | L1 基线调研 | `notes/01-background.md`、本台账 | ✅ 本机完成 | — |
+| 1 | L2-3 Router & 调度元数据 | `router.py`、`metadata.py`、`tests/test_router.py`、`tests/test_metadata.py` | 🟡 代码完成待 torch 验证 | — |
+| 2 | L4-5 All-to-All | `comm/base.py`、`comm/nccl_a2a.py`、`comm/sim_a2a.py`、`comm/placement.py`、`comm/grouping.py` | 🟡 代码完成待 torch 验证 | 多 rank NCCL 固定/变长 A2A |
+| 3 | L6-8 Triton 算子 | `kernels/dispatch_combine.py`、`kernels/grouped_gemm.py`、`experts/mlp.py` | 🟡 代码完成待 torch/CUDA 验证 | kernel 编译、数值对齐、精度/边界 case |
+| 4 | L9-10 接入 vLLM | `notes/09-vllm-path.md`、`moe_runner.py`、`local_plan.py` | 🟡 代码完成待 torch/CUDA 验证 | 单轮 prefill/decode 跑通 |
+| 5 | L11 Graph & 拓扑 | `graph/bucket_graph.py`、`parallel.py`、拓扑/专家放置配置 | 🟡 代码完成待 CUDA 验证 | Graph warmup/capture/replay、EP=1/2/4 |
+| 6 | L12-13 对齐压测 | `alignment.py`、`bench.py`、`examples/smoke_sim.py`、对齐/压测笔记 | 🟡 代码完成待 torch/CUDA 验证 | 逐层 hidden state 对齐、17038 请求稳定性压测 |
 
 状态标记：⬜ 待开始 / 🔵 进行中 / ✅ 本机完成 / 🟡 代码完成待 GPU 验证。
 
